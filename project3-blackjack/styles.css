@@ -28,7 +28,7 @@ nav ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(218, 16, 16);
 }
 
 nav ul li {
@@ -66,6 +66,7 @@ nav ul li a {
 }
 
 input {
+  background-color: #33c5ff;
   font-size: 21px;
   line-height: 33px;
   margin: 0 0 23px 0;
@@ -74,6 +75,7 @@ input {
 }
 
 button {
+  background-color: rgb(216, 216, 216);
   font-size: 21px;
   line-height: 33px;
   margin: 0 0 23px 0;
@@ -81,7 +83,7 @@ button {
 }
 
 .output-div {
-  background-color: lightgrey;
+  background-color: rgb(247, 158, 56);
   margin: 20px auto;
   padding: 20px;
   width: 100%;

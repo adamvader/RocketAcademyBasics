@@ -244,36 +244,86 @@
 //   }
 // };
 
-//function to generate random background color
-var generateRandomColor = function () {
-  var randomDecimal = Math.random() * 6;
+// //function to generate random background color
+// var generateRandomColor = function () {
+//   var randomDecimal = Math.random() * 6;
 
-  var randomNum = Math.floor(randomDecimal) + 1;
+//   var randomNum = Math.floor(randomDecimal) + 1;
 
-  var container = document.querySelector(".container");
+//   var container = document.querySelector(".container");
 
-  if (randomNum == 1) {
-    container.style.backgroundColor = "#3F84E5";
-    return `azure`;
-  } else if (randomNum == 2) {
-    container.style.backgroundColor = "#F0E2E7";
-    return `lavender`;
-  } else if (randomNum == 3) {
-    container.style.backgroundColor = "#B20D30";
-    return `red`;
-  } else if (randomNum == 4) {
-    container.style.backgroundColor = "#C17817";
-    return `ochre`;
-  } else if (randomNum == 5) {
-    container.style.backgroundColor = "#3F784C";
-    return `amazon`;
+//   if (randomNum == 1) {
+//     container.style.backgroundColor = "#3F84E5";
+//     return `azure`;
+//   } else if (randomNum == 2) {
+//     container.style.backgroundColor = "#F0E2E7";
+//     return `lavender`;
+//   } else if (randomNum == 3) {
+//     container.style.backgroundColor = "#B20D30";
+//     return `red`;
+//   } else if (randomNum == 4) {
+//     container.style.backgroundColor = "#C17817";
+//     return `ochre`;
+//   } else if (randomNum == 5) {
+//     container.style.backgroundColor = "#3F784C";
+//     return `amazon`;
+//   }
+// };
+
+// var main = function (input) {
+//   //output is the sentence to state the container color
+//   var newContainerColor = generateRandomColor();
+
+//   var myOutputValue = `The background color is now ${newContainerColor}.`;
+//   return myOutputValue;
+// };
+
+var replaceAceRankWith1 = function (cardsInHand) {
+  var currentIndex = 0;
+
+  while (currentIndex < cardsInHand.length) {
+    if (cardsInHand[currentIndex].rank == 11) {
+      cardsInHand[currentIndex].rank = 1;
+      console.log(`ace rank now 1`);
+      return cardsInHand;
+    }
+    currentIndex += 1;
   }
+  console.log(`ace rank now 1`);
+  return cardsInHand;
+};
+
+var sampleDeck = [
+  { name: `ace`, rank: 8, suit: `heart` },
+  { name: `ace`, rank: 11, suit: `club` },
+  { name: `ace`, rank: 11, suit: `diamond` },
+  { name: `ace`, rank: 11, suit: `spade` }
+];
+
+var concatenatePlayerCardValues = function (playerCards) {
+  var playerScore = 0;
+  var count = 0;
+
+  for (var i = 0; i < playerCards.length; i += 1) {
+    playerScore += playerCards[i].rank;
+  }
+
+  while (playerScore > 21) {
+    playerCards = replaceAceRankWith1(playerCards);
+    playerScore = 0;
+    for (var i = 0; i < playerCards.length; i += 1) {
+      playerScore += playerCards[i].rank;
+    }
+    if (count == 4) {
+      return playerScore;
+    }
+    count += 1;
+  }
+
+  return playerScore;
 };
 
 var main = function (input) {
-  //output is the sentence to state the container color
-  var newContainerColor = generateRandomColor();
-
-  var myOutputValue = `The background color is now ${newContainerColor}.`;
+  var myOutputValue = concatenatePlayerCardValues(sampleDeck);
   return myOutputValue;
 };
