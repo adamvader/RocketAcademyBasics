@@ -74,6 +74,12 @@ The <html> element is known as the root element of a HTML page. All other elemen
         ♠ <span style="color: red;">♥</span> ♣
         <span style="color: red;">♦</span>
       </button>
+      <button id="hit-button" style="display: none;">
+        HIT
+      </button>
+      <button id="stand-button" style="display: none;">
+        STAND
+      </button>
       <p>Output:</p>
       <div class="output-div" id="output-div">
         Welcome to Adam's Blackjack! Click the button to start the game!
@@ -86,9 +92,8 @@ The <html> element is known as the root element of a HTML page. All other elemen
     <!-- Define button click functionality -->
     <script>
       // Declare and define a variable that represents the Submit Button
-      var button = document.querySelector("#submit-button");
-      // When the submit button is clicked, access the text entered by the user in the input field
-      // And pass it as an input parameter to the main function as defined in script.js
+
+      // When the ♠ ♥ ♣ ♦ button is clicked, run the main function
       button.addEventListener("click", function () {
         // Set result to input value
         var input = document.querySelector("#input-field");
@@ -101,6 +106,30 @@ The <html> element is known as the root element of a HTML page. All other elemen
 
         // Reset input value
         input.value = "";
+      });
+
+      //when the HIT button is clicked, run the hitButtonActivated function
+      hitButton.addEventListener("click", function () {
+        // run hit function
+        var result = hitButtonActivated();
+
+        // Display result in output element
+        var output = document.querySelector("#output-div");
+        output.innerHTML = myOutputValue;
+      });
+
+      //when the STAND button is clicked, run the standButtonActivated function
+      standButton.addEventListener("click", function () {
+        // run hit function
+        var result = standButtonActivated();
+
+        // Display result in output element
+        var output = document.querySelector("#output-div");
+        output.innerHTML = myOutputValue;
+        //hide HIT and STAND buttons, show ♠ ♥ ♣ ♦ button
+        hitButton.style.display = "none";
+        standButton.style.display = "none";
+        button.style.display = "block";
       });
     </script>
   </body>
