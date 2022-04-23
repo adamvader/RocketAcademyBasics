@@ -126,7 +126,7 @@ var dealFirstHand = function (shuffledDeck) {
   console.log(dealerCards);
   console.log(`first hand dealt`);
   //print player's cards and dealer's first card only, dealer's second card is hidden
-  return `Player hand: <br>${playerCards[0].name} of ${playerCards[0].suit} <br>${playerCards[1].name} of ${playerCards[1].suit} <br><br>Dealer hand: <br>${dealerCards[0].name} of ${dealerCards[0].suit}`;
+  return `<html><font color="red">Player</font></html> hand: <br>${playerCards[0].name} of ${playerCards[0].suit} <br>${playerCards[1].name} of ${playerCards[1].suit} <br><br>Dealer hand: <br>${dealerCards[0].name} of ${dealerCards[0].suit}`;
 };
 
 //deal card to player
@@ -181,11 +181,17 @@ var checkForNaturalBlackjack = function () {
 
   // print blackjack win statements
   if (playerBlackjack && dealerBlackjack == true) {
-    return `<br>${dealerCards[1].name} of ${dealerCards[1].suit} <br><br>Both player and dealer have blackjacks! It's a tie! <br><br>Click button to deal a new hand.`;
+    var myImage = '<br><img src="https://c.tenor.com/XRbkPJly5NUAAAAC/yeah-baby-yeah.gif"/>';
+    var outPut = `<br>${dealerCards[1].name} of ${dealerCards[1].suit} <br><br>Both <html><font color="red">player</font></html> and dealer have blackjacks! It's a tie! <br><br>Click button to deal a new hand.` + myImage; // will display an image in the grey box
+    return outPut;
   } else if (playerBlackjack == true) {
-    return `<br><br>Player has blackjack! Player wins! <br><br>Click button to deal a new hand.`;
+    myImage = '<br><img src="https://c.tenor.com/D93g-yTv25EAAAAC/snoop-dogg-straight-gangsta.gif"/>';
+    outPut = `<br><br><html><font color="red">Player</font></html> has blackjack! <html><font color="red">Player</font></html> wins! <br><br>Click button to deal a new hand.` + myImage;
+    return outPut;
   } else if (dealerBlackjack == true) {
-    return `<br>${dealerCards[1].name} of ${dealerCards[1].suit} <br><br>Dealer has blackjack! Dealer wins! <br><br>Click button to deal a new hand.`;
+    myImage = '<br><img src="https://c.tenor.com/hq6Fi0viNQQAAAAC/sassy.gif"/>';
+    outPut =`<br>${dealerCards[1].name} of ${dealerCards[1].suit} <br><br>Dealer has blackjack! Dealer wins!` + myImage + `<br><br>Click button to deal a new hand.`;
+    return outPut;
   }
   return ``;
 };
@@ -243,26 +249,32 @@ var concatenateDealerCardValues = function (dealerCards) {
 //compare total card values between player and dealer
 var compareCardValues = function (playerScore, dealerScore) {
   if (playerScore == dealerScore) {
-    return `<br><br>It's a tie.`;
+    var myImage = '<br><img src="https://c.tenor.com/oc7MfKdTd3kAAAAC/batman-i-see.gif"/>';
+    var Output = `<br><br>It's a tie.` + myImage;
+    return Output;
   } else if (playerScore > dealerScore) {
-    return `<br><br>Player wins.`;
+    myImage = '<br><img src="https://c.tenor.com/XRbkPJly5NUAAAAC/yeah-baby-yeah.gif"/>';
+    Output = `<br><br><html><font color="red">Player</font></html> wins.` + myImage;
+    return Output;
   } else if (playerScore < dealerScore) {
-    return `<br><br>Dealer wins.`;
+    myImage = '<br><img src="https://c.tenor.com/hq6Fi0viNQQAAAAC/sassy.gif"/>';
+    Output = `<br><br>Dealer wins!` + myImage;
+    return Output;
   }
 };
 
 //helper function for dealer's turn
 var dealerTurn = function () {
   // print current cards in player hand
-  myOutputValue = `Player hand: `;
+  myOutputValue = `<html><font color="red">Player</font></html> hand: `;
   for (var i = 0; i < playerCards.length; i += 1) {
     myOutputValue += `<br>${playerCards[i].name} of ${playerCards[i].suit}`;
   }
   //print player total hand value
-  myOutputValue += `<br>Player hand value: ${playerScore}`;
+  myOutputValue += `<br><html><font color="red">Player</font></html> hand value: ${playerScore}`;
   //bust condition if hand value more than 21
   if (playerScore > 21) {
-    myOutputValue += `<br>Player bust`;
+    myOutputValue += `<br><html><font color="red">Player</font></html> bust`;
   }
   // print dealer initial hand
   myOutputValue += `<br><br>Dealer hand: `;
@@ -285,11 +297,13 @@ var dealerTurn = function () {
 var decideWinner = function (playerScore, dealerScore) {
   //if dealer > 21 and player > 21 = tie
   if (playerScore > 21 && dealerScore > 21) {
-    var Output = `<br>Dealer busts. It's a tie!`;
+    var myImage = '<br><img src="https://c.tenor.com/oc7MfKdTd3kAAAAC/batman-i-see.gif"/>';
+    var Output = `<br><br>Dealer busts. It's a tie!` + myImage;
   }
   // if player bust but dealer hand value less than or equal to 21, dealer win
   else if (playerScore > 21 && dealerScore <= 21) {
-    Output = `<br>Dealer wins!`;
+    var myImage = '<br><img src="https://c.tenor.com/hq6Fi0viNQQAAAAC/sassy.gif"/>';
+    Output = `<br><br>Dealer wins!` + myImage;
   }
   //if both hand value less than or equal to 21, compare hand values and determine winner
   else if (playerScore <= 21 && dealerScore <= 21) {
@@ -297,7 +311,8 @@ var decideWinner = function (playerScore, dealerScore) {
   }
   //if dealer bust but player hand value less than or equal to 21, player win
   else if (playerScore <= 21 && dealerScore > 21) {
-    Output = `<br>Dealer busts. Player wins!`;
+    myImage = '<br><img src="https://c.tenor.com/XRbkPJly5NUAAAAC/yeah-baby-yeah.gif"/>';
+    Output = `<br><br>Dealer busts. <html><font color="red">Player</font></html> wins!` + myImage;
   }
   return Output;
 };
@@ -305,7 +320,7 @@ var decideWinner = function (playerScore, dealerScore) {
 //if player chooses hit
 var hitButtonActivated = function () {
   // print current cards in player hand
-  myOutputValue = `Player hand: `;
+  myOutputValue = `<html><font color="red">Player</font></html> hand: `;
   for (var i = 0; i < playerCards.length; i += 1) {
     myOutputValue += `<br>${playerCards[i].name} of ${playerCards[i].suit}`;
   }
@@ -316,7 +331,7 @@ var hitButtonActivated = function () {
   //update player total hand value
   playerScore = concatenatePlayerCardValues(playerCards);
   //print player total hand value
-  myOutputValue += `<br><br>Player hand value: ${playerScore}`;
+  // myOutputValue += `<br><br>Player hand value: ${playerScore}`;
   //bust condition if hand value more than 21
   if (playerScore > 21) {
     // run code for dealer turn
@@ -328,6 +343,10 @@ var hitButtonActivated = function () {
     //reset the game
     return myOutputValue;
   }
+
+  var myImage = '<br><img src="https://c.tenor.com/xRVfpnVdsiAAAAAC/rob-schneider-waterboy.gif"/>'
+  myOutputValue += `<br><br><html><font color="red">Player</font></html> hand value: ${playerScore}. <br><br>Would you like to hit or stand?` + myImage;
+  return myOutputValue;
 };
 
 var standButtonActivated = function () {
@@ -355,7 +374,8 @@ var main = function (input) {
     dealerScore = concatenateDealerCardValues(dealerCards);
     // if there is no natural blackjack, change game state to player decision and query to hit or stand.
     if (playerBlackjack == false && dealerBlackjack == false) {
-      myOutputValue += `<br><br>Player hand value: ${playerScore}. <br><br>Would you like to hit or stand?`;
+      var myImage = '<br><img src="https://c.tenor.com/xRVfpnVdsiAAAAAC/rob-schneider-waterboy.gif"/>'
+      myOutputValue += `<br><br><html><font color="red">Player</font></html> hand value: ${playerScore}. <br><br>Would you like to hit or stand?` + myImage;
       GAME_STATE = `PLAYER_HIT_OR_STAND`;
       console.log(`${GAME_STATE}`);
       button.style.display = "none";
