@@ -13,7 +13,10 @@ The <html> element is known as the root element of a HTML page. All other elemen
     <title>Basics</title>
     <!-- The <link> element specifies a relationship between this HTML page and an external resource, namely the styles.css file here. In this case, we are linking a stylesheet which is a CSS file containing information relating to the layout and style of the webpage. The syntax within the styles.css file is also referred to as CSS - Cascading Style Sheets. -->
     <link rel="stylesheet" href="styles.css" />
-    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+    <link
+      href="https://fonts.googleapis.com/css?family=Bangers"
+      rel="stylesheet"
+    />
   </head>
 
   <!-- The <body> element defines the document's body, and is a container for all the visible contents that will be rendered by the browser.  -->
@@ -65,9 +68,9 @@ The <html> element is known as the root element of a HTML page. All other elemen
     <!-- The <div> tag defines a division or a section in an HTML document, and is commonly use as a "container" for nested HTML elements. -->
     <div class="container">
       <!-- The <p> tag defines a paragraph element. -->
-      <p>Input:</p>
+      <!--<p>Input:</p>-->
       <!-- The self-closing <input /> tag represents a field for a user to enter input. -->
-      <input id="input-field" />
+      <!--<input id="input-field" />-->
       <!-- The self-closing <br /> tag represents a line break - a line's worth of spacing before dispalying the next element. -->
       <br />
       <!-- The <button> tag represents.. you guessed it! a button. -->
@@ -97,9 +100,10 @@ The <html> element is known as the root element of a HTML page. All other elemen
       // When the ♠ ♥ ♣ ♦ button is clicked, run the main function
       button.addEventListener("click", function () {
         // Set result to input value
-        var input = document.querySelector("#input-field");
+        //var input = document.querySelector("#input-field");
         // Store the output of main() in a new variable
-        var result = main(input.value);
+        //var result = main(input.value);
+        var result = main();
 
         // Display result in output element
         var output = document.querySelector("#output-div");
