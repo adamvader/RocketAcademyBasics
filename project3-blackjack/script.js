@@ -42,25 +42,26 @@ var makeDeck = function () {
       } else if (cardName == 13) {
         cardName = `King`;
         cardRank = 10;
-      } else if (cardName == 2) {
-        cardName = `2️⃣`;
-      } else if (cardName == 3) {
-        cardName = `3️⃣`;
-      } else if (cardName == 4) {
-        cardName = `4️⃣`;
-      } else if (cardName == 5) {
-        cardName = `5️⃣`;
-      } else if (cardName == 6) {
-        cardName = `6️⃣`;
-      } else if (cardName == 7) {
-        cardName = `7️⃣`;
-      } else if (cardName == 8) {
-        cardName = `8️⃣`;
-      } else if (cardName == 9) {
-        cardName = `9️⃣`;
-      } else if (cardName == 10) {
-        cardName = `🔟`;
       }
+      //else if (cardName == 2) {
+      //   cardName = `2️⃣`;
+      // } else if (cardName == 3) {
+      //   cardName = `3️⃣`;
+      // } else if (cardName == 4) {
+      //   cardName = `4️⃣`;
+      // } else if (cardName == 5) {
+      //   cardName = `5️⃣`;
+      // } else if (cardName == 6) {
+      //   cardName = `6️⃣`;
+      // } else if (cardName == 7) {
+      //   cardName = `7️⃣`;
+      // } else if (cardName == 8) {
+      //   cardName = `8️⃣`;
+      // } else if (cardName == 9) {
+      //   cardName = `9️⃣`;
+      // } else if (cardName == 10) {
+      //   cardName = `🔟`;
+      // }
 
       var card = {
         name: cardName,
