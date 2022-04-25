@@ -74,17 +74,19 @@ The <html> element is known as the root element of a HTML page. All other elemen
       <!-- The self-closing <br /> tag represents a line break - a line's worth of spacing before dispalying the next element. -->
       <br />
       <!-- The <button> tag represents.. you guessed it! a button. -->
-      <button id="submit-button">
-        ♠ <span style="color: red;">♥</span> ♣
-        <span style="color: red;">♦</span>
-      </button>
-      <button id="hit-button" style="display: none;">
-        HIT
-      </button>
-      <button id="stand-button" style="display: none;">
-        STAND
-      </button>
-      <p>Output:</p>
+      <div class="flex-parent jc-center">
+        <button id="submit-button">
+          ♠ <span style="color: red;">♥</span> ♣
+          <span style="color: red;">♦</span>
+        </button>
+        <button id="hit-button" style="display: none;" class="margin-right">
+          HIT
+        </button>
+        <button id="stand-button" style="display: none;">
+          STAND
+        </button>
+      </div>
+      <!-- <p>Output:</p>-->
       <div class="output-div" id="output-div">
         Welcome to Adam's Blackjack! Click the button to start the game!
       </div>

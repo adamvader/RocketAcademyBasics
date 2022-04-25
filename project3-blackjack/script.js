@@ -179,18 +179,31 @@ var checkForNaturalBlackjack = function () {
 
   console.log(`checking for blackjack`);
 
+  //rig blackjack
+  //playerBlackjack = true;
+  //dealerBlackjack = true;
+
   // print blackjack win statements
   if (playerBlackjack && dealerBlackjack == true) {
-    var myImage = '<br><img src="https://c.tenor.com/XRbkPJly5NUAAAAC/yeah-baby-yeah.gif"/>';
-    var outPut = `<br>${dealerCards[1].name} of ${dealerCards[1].suit} <br><br>Both <html><font color="red">player</font></html> and dealer have blackjacks! It's a tie! <br><br>Click button to deal a new hand.` + myImage; // will display an image in the grey box
+    var myImage =
+      '<br><img src="https://c.tenor.com/It6WN9CY4HMAAAAC/wow-oh-my-god.gif"/>';
+    var outPut =
+      `<br>${dealerCards[1].name} of ${dealerCards[1].suit} <br><br>Both <html><font color="red">player</font></html> and dealer have blackjacks! It's a tie! <br><br>Click button to deal a new hand.` +
+      myImage; // will display an image in the grey box
     return outPut;
   } else if (playerBlackjack == true) {
-    myImage = '<br><img src="https://c.tenor.com/D93g-yTv25EAAAAC/snoop-dogg-straight-gangsta.gif"/>';
-    outPut = `<br><br><html><font color="red">Player</font></html> has blackjack! <html><font color="red">Player</font></html> wins! <br><br>Click button to deal a new hand.` + myImage;
+    myImage =
+      '<br><img src="https://c.tenor.com/D93g-yTv25EAAAAC/snoop-dogg-straight-gangsta.gif"/>';
+    outPut =
+      `<br><br><html><font color="red">Player</font></html> has blackjack! <html><font color="red">Player</font></html> wins! <br><br>Click button to deal a new hand.` +
+      myImage;
     return outPut;
   } else if (dealerBlackjack == true) {
     myImage = '<br><img src="https://c.tenor.com/hq6Fi0viNQQAAAAC/sassy.gif"/>';
-    outPut =`<br>${dealerCards[1].name} of ${dealerCards[1].suit} <br><br>Dealer has blackjack! Dealer wins!` + myImage + `<br><br>Click button to deal a new hand.`;
+    outPut =
+      `<br>${dealerCards[1].name} of ${dealerCards[1].suit} <br><br>Dealer has blackjack! Dealer wins!` +
+      myImage +
+      `<br><br>Click button to deal a new hand.`;
     return outPut;
   }
   return ``;
@@ -249,12 +262,15 @@ var concatenateDealerCardValues = function (dealerCards) {
 //compare total card values between player and dealer
 var compareCardValues = function (playerScore, dealerScore) {
   if (playerScore == dealerScore) {
-    var myImage = '<br><img src="https://c.tenor.com/oc7MfKdTd3kAAAAC/batman-i-see.gif"/>';
+    var myImage =
+      '<br><img src="https://c.tenor.com/oc7MfKdTd3kAAAAC/batman-i-see.gif"/>';
     var Output = `<br><br>It's a tie.` + myImage;
     return Output;
   } else if (playerScore > dealerScore) {
-    myImage = '<br><img src="https://c.tenor.com/XRbkPJly5NUAAAAC/yeah-baby-yeah.gif"/>';
-    Output = `<br><br><html><font color="red">Player</font></html> wins.` + myImage;
+    myImage =
+      '<br><img src="https://c.tenor.com/It6WN9CY4HMAAAAC/wow-oh-my-god.gif"/>';
+    Output =
+      `<br><br><html><font color="red">Player</font></html> wins.` + myImage;
     return Output;
   } else if (playerScore < dealerScore) {
     myImage = '<br><img src="https://c.tenor.com/hq6Fi0viNQQAAAAC/sassy.gif"/>';
@@ -297,12 +313,14 @@ var dealerTurn = function () {
 var decideWinner = function (playerScore, dealerScore) {
   //if dealer > 21 and player > 21 = tie
   if (playerScore > 21 && dealerScore > 21) {
-    var myImage = '<br><img src="https://c.tenor.com/oc7MfKdTd3kAAAAC/batman-i-see.gif"/>';
+    var myImage =
+      '<br><img src="https://c.tenor.com/oc7MfKdTd3kAAAAC/batman-i-see.gif"/>';
     var Output = `<br><br>Dealer busts. It's a tie!` + myImage;
   }
   // if player bust but dealer hand value less than or equal to 21, dealer win
   else if (playerScore > 21 && dealerScore <= 21) {
-    var myImage = '<br><img src="https://c.tenor.com/hq6Fi0viNQQAAAAC/sassy.gif"/>';
+    var myImage =
+      '<br><img src="https://c.tenor.com/hq6Fi0viNQQAAAAC/sassy.gif"/>';
     Output = `<br><br>Dealer wins!` + myImage;
   }
   //if both hand value less than or equal to 21, compare hand values and determine winner
@@ -311,8 +329,11 @@ var decideWinner = function (playerScore, dealerScore) {
   }
   //if dealer bust but player hand value less than or equal to 21, player win
   else if (playerScore <= 21 && dealerScore > 21) {
-    myImage = '<br><img src="https://c.tenor.com/XRbkPJly5NUAAAAC/yeah-baby-yeah.gif"/>';
-    Output = `<br><br>Dealer busts. <html><font color="red">Player</font></html> wins!` + myImage;
+    myImage =
+      '<br><img src="https://c.tenor.com/It6WN9CY4HMAAAAC/wow-oh-my-god.gif"/>';
+    Output =
+      `<br><br>Dealer busts. <html><font color="red">Player</font></html> wins!` +
+      myImage;
   }
   return Output;
 };
@@ -344,8 +365,11 @@ var hitButtonActivated = function () {
     return myOutputValue;
   }
 
-  var myImage = '<br><img src="https://c.tenor.com/xRVfpnVdsiAAAAAC/rob-schneider-waterboy.gif"/>'
-  myOutputValue += `<br><br><html><font color="red">Player</font></html> hand value: ${playerScore}. <br><br>Would you like to hit or stand?` + myImage;
+  var myImage =
+    '<br><img src="https://c.tenor.com/xRVfpnVdsiAAAAAC/rob-schneider-waterboy.gif"/>';
+  myOutputValue +=
+    `<br><br><html><font color="red">Player</font></html> hand value: ${playerScore}. <br><br>Would you like to hit or stand?` +
+    myImage;
   return myOutputValue;
 };
 
@@ -374,8 +398,11 @@ var main = function (input) {
     dealerScore = concatenateDealerCardValues(dealerCards);
     // if there is no natural blackjack, change game state to player decision and query to hit or stand.
     if (playerBlackjack == false && dealerBlackjack == false) {
-      var myImage = '<br><img src="https://c.tenor.com/xRVfpnVdsiAAAAAC/rob-schneider-waterboy.gif"/>'
-      myOutputValue += `<br><br><html><font color="red">Player</font></html> hand value: ${playerScore}. <br><br>Would you like to hit or stand?` + myImage;
+      var myImage =
+        '<br><img src="https://c.tenor.com/xRVfpnVdsiAAAAAC/rob-schneider-waterboy.gif"/>';
+      myOutputValue +=
+        `<br><br><html><font color="red">Player</font></html> hand value: ${playerScore}. <br><br>Would you like to hit or stand?` +
+        myImage;
       GAME_STATE = `PLAYER_HIT_OR_STAND`;
       console.log(`${GAME_STATE}`);
       button.style.display = "none";
@@ -384,54 +411,54 @@ var main = function (input) {
     }
   }
   // GAME STATE IS `PLAYER_HIT_OR_STAND`
-  else if (GAME_STATE == `PLAYER_HIT_OR_STAND`) {
-    //if player chooses hit
-    // if (input == `h`) {
-    //   // print current cards in player hand
-    //   myOutputValue = `Player hand: `;
-    //   for (var i = 0; i < playerCards.length; i += 1) {
-    //     myOutputValue += `<br>${playerCards[i].name} of ${playerCards[i].suit}`;
-    //   }
-    //   //add one card to player hand and print it
-    //   myOutputValue +=
-    //     dealPlayerCard(shuffledDeck) +
-    //     `<br><br>Dealer hand: <br>${dealerCards[0].name} of ${dealerCards[0].suit}`;
-    //   //update player total hand value
-    //   playerScore = concatenatePlayerCardValues(playerCards);
-    //   //print player total hand value
-    //   myOutputValue += `<br><br>Player hand value: ${playerScore}`;
-    //   //bust condition if hand value more than 21
-    //   if (playerScore > 21) {
-    //     // run code for dealer turn
-    //     myOutputValue =
-    //       dealerTurn() + `<br><br>Click button to deal a new hand.`;
-    //     GAME_STATE = `DEAL_FIRST_HAND`;
-    //     //reset the game
-    //     return myOutputValue;
-    //   } else {
-    //     myOutputValue += `<br><br>Would you like to hit or stand? Type h for hit or s for stand`;
-    //   }
-    // }
-    // if player chooses stand
-    // if (input == `s`) {
-    //   //run code for dealer's turn
-    //   myOutputValue = dealerTurn() + `<br><br>Click button to deal a new hand.`;
-    //   GAME_STATE = `DEAL_FIRST_HAND`;
-    // }
-    // if player input is something other than "hit" or "stand"
-    // else {
-    //   //print player current hand
-    //   myOutputValue = `Player hand: `;
-    //   for (var i = 0; i < playerCards.length; i += 1) {
-    //     myOutputValue += `<br>${playerCards[i].name} of ${playerCards[i].suit}`;
-    //   }
-    //   //print player current hand value
-    //   myOutputValue += `<br><br>Dealer hand: <br>${dealerCards[0].name} of ${dealerCards[0].suit} <br><br>Player hand value: ${playerScore} `;
-    //   //query player to input either `hit` or `stand`
-    //   myOutputValue += `<br><br>Invalid input. Please type "h" or "s".`;
-    //   return myOutputValue;
-    // }
-  }
+  //  else if (GAME_STATE == `PLAYER_HIT_OR_STAND`) {
+  //if player chooses hit
+  // if (input == `h`) {
+  //   // print current cards in player hand
+  //   myOutputValue = `Player hand: `;
+  //   for (var i = 0; i < playerCards.length; i += 1) {
+  //     myOutputValue += `<br>${playerCards[i].name} of ${playerCards[i].suit}`;
+  //   }
+  //   //add one card to player hand and print it
+  //   myOutputValue +=
+  //     dealPlayerCard(shuffledDeck) +
+  //     `<br><br>Dealer hand: <br>${dealerCards[0].name} of ${dealerCards[0].suit}`;
+  //   //update player total hand value
+  //   playerScore = concatenatePlayerCardValues(playerCards);
+  //   //print player total hand value
+  //   myOutputValue += `<br><br>Player hand value: ${playerScore}`;
+  //   //bust condition if hand value more than 21
+  //   if (playerScore > 21) {
+  //     // run code for dealer turn
+  //     myOutputValue =
+  //       dealerTurn() + `<br><br>Click button to deal a new hand.`;
+  //     GAME_STATE = `DEAL_FIRST_HAND`;
+  //     //reset the game
+  //     return myOutputValue;
+  //   } else {
+  //     myOutputValue += `<br><br>Would you like to hit or stand? Type h for hit or s for stand`;
+  //   }
+  // }
+  // if player chooses stand
+  // if (input == `s`) {
+  //   //run code for dealer's turn
+  //   myOutputValue = dealerTurn() + `<br><br>Click button to deal a new hand.`;
+  //   GAME_STATE = `DEAL_FIRST_HAND`;
+  // }
+  // if player input is something other than "hit" or "stand"
+  // else {
+  //   //print player current hand
+  //   myOutputValue = `Player hand: `;
+  //   for (var i = 0; i < playerCards.length; i += 1) {
+  //     myOutputValue += `<br>${playerCards[i].name} of ${playerCards[i].suit}`;
+  //   }
+  //   //print player current hand value
+  //   myOutputValue += `<br><br>Dealer hand: <br>${dealerCards[0].name} of ${dealerCards[0].suit} <br><br>Player hand value: ${playerScore} `;
+  //   //query player to input either `hit` or `stand`
+  //   myOutputValue += `<br><br>Invalid input. Please type "h" or "s".`;
+  //   return myOutputValue;
+  // }
+  // }
 
   return myOutputValue;
 };
